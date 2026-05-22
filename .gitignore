@@ -1,0 +1,44 @@
+# Python / Backend
+__pycache__/
+*.py[cod]
+*.pyc
+.env
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+uploads/
+*.log
+
+# Alembic
+alembic/versions/*.py
+!alembic/versions/.gitkeep
+
+# Node / Angular
+node_modules/
+frontend/dist/
+frontend/.angular/
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.pem
+*.key
+*.cert
+.env.local
+.env.production
+
+# Deploy scripts (contain PAT — never commit)
+push-to-github.bat
+push-to-github.ps1

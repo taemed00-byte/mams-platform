@@ -1,0 +1,123 @@
+:root {
+  --tmasi-navy: #1e3870;
+  --tmasi-navy-dark: #0a1b4e;
+  --tmasi-gold: #c9a84c;
+  --tmasi-gold-light: #f4d766;
+  --tmasi-sidebar-width: 260px;
+  --tmasi-sidebar-collapsed: 64px;
+  --tmasi-topbar-height: 64px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; font-family: 'Inter', sans-serif; }
+
+/* RTL support */
+[dir="rtl"] { font-family: 'Noto Sans Arabic', 'Inter', sans-serif; }
+
+/* Status pills */
+.status-pill {
+  display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;
+}
+.status-open { background: #e3f2fd; color: #1565c0; }
+.status-pending { background: #fff8e1; color: #f57f17; }
+.status-approved { background: #e8f5e9; color: #2e7d32; }
+.status-closed { background: #f3e5f5; color: #6a1b9a; }
+.status-cancelled { background: #fce4ec; color: #c62828; }
+.status-paid { background: #e8f5e9; color: #2e7d32; }
+.status-overdue { background: #fce4ec; color: #c62828; }
+.status-draft { background: #f5f5f5; color: #616161; }
+.status-sent { background: #e3f2fd; color: #1565c0; }
+
+/* Priority badges */
+.priority-low { background: #e8f5e9; color: #2e7d32; }
+.priority-medium { background: #fff8e1; color: #f57f17; }
+.priority-high { background: #fff3e0; color: #e65100; }
+.priority-critical { background: #fce4ec; color: #c62828; }
+
+/* Tier badges */
+.tier-preferred { background: #e8f5e9; color: #1b5e20; }
+.tier-standard { background: #e3f2fd; color: #0d47a1; }
+.tier-blacklisted { background: #fce4ec; color: #b71c1c; }
+
+/* Cards */
+.mams-card {
+  background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 24px; margin-bottom: 16px;
+}
+
+/* KPI stat cards */
+.kpi-card {
+  background: white; border-radius: 12px; padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 8px;
+  border-left: 4px solid var(--tmasi-gold);
+}
+.kpi-card .kpi-value { font-size: 28px; font-weight: 700; color: var(--tmasi-navy); }
+.kpi-card .kpi-label { font-size: 13px; color: #666; font-weight: 500; }
+
+/* Sidebar */
+.sidebar {
+  width: var(--tmasi-sidebar-width); background: var(--tmasi-navy-dark); color: white;
+  height: 100vh; position: fixed; left: 0; top: 0; z-index: 100;
+  transition: width 0.25s ease; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.sidebar.collapsed { width: var(--tmasi-sidebar-collapsed); }
+
+/* Page wrapper */
+.page-wrapper {
+  margin-left: var(--tmasi-sidebar-width); padding-top: var(--tmasi-topbar-height);
+  min-height: 100vh; background: #f5f7fa; transition: margin-left 0.25s ease;
+}
+.page-wrapper.sidebar-collapsed { margin-left: var(--tmasi-sidebar-collapsed); }
+.page-content { padding: 24px; max-width: 1400px; }
+
+/* Tables */
+.mat-mdc-table { width: 100%; background: white; border-radius: 8px; overflow: hidden; }
+.mat-mdc-header-row { background: #f8f9fa; }
+.mat-mdc-header-cell { font-weight: 600; color: #444; font-size: 12px; text-transform: uppercase; }
+
+/* Forms */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.form-grid.full { grid-template-columns: 1fr; }
+mat-form-field { width: 100%; }
+
+/* Empty state */
+.empty-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 64px 24px; gap: 16px; color: #999;
+}
+.empty-state mat-icon { font-size: 64px; width: 64px; height: 64px; color: #ddd; }
+.empty-state h3 { margin: 0; font-size: 18px; color: #555; }
+.empty-state p { margin: 0; font-size: 14px; }
+
+/* Print styles */
+@media print {
+  .sidebar, .topbar, .no-print,
+  button, mat-icon-button, [mat-icon-button],
+  .mat-mdc-tab-header, .step-actions,
+  .header-actions { display: none !important; }
+  .page-wrapper { margin: 0 !important; padding: 0 !important; }
+  .page-content { padding: 0 !important; max-width: 100% !important; }
+  .mams-card { box-shadow: none !important; border: 1px solid #ddd !important; break-inside: avoid; }
+  .detail-header { break-after: avoid; }
+  .quick-stats { break-inside: avoid; }
+  body { background: white !important; font-size: 12px; }
+  .status-pill { border: 1px solid currentColor; }
+  a { color: inherit !important; text-decoration: none !important; }
+  /* Print header with TMASI branding */
+  body::before {
+    content: 'MAMS – Medical Assistance Management System | TMASI Global';
+    display: block; text-align: center; font-size: 13px; font-weight: 600;
+    color: #1e3870; padding: 8px 0 16px; border-bottom: 2px solid #1e3870; margin-bottom: 16px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root { --tmasi-sidebar-width: var(--tmasi-sidebar-collapsed); }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid.three-col { grid-template-columns: 1fr; }
+}

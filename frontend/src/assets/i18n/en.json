@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "dashboard": "Dashboard", "cases": "Cases", "providers": "Providers",
+    "finance": "Finance", "clients": "Clients", "reports": "Reports",
+    "users": "Users", "settings": "Settings", "audit": "Audit Log", "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Dashboard", "openCases": "Open Cases", "totalRevenue": "Total Revenue",
+    "slaCompliance": "SLA Compliance", "overdueInvoices": "Overdue Invoices",
+    "casesOverTime": "Cases Over Time", "statusBreakdown": "Status Breakdown",
+    "costByType": "Cost by Case Type", "topProviders": "Top Providers"
+  },
+  "cases": {
+    "title": "Cases", "newCase": "New Case", "caseNumber": "Case #",
+    "patient": "Patient", "type": "Type", "priority": "Priority",
+    "status": "Status", "country": "Country", "cost": "Cost", "sla": "SLA"
+  },
+  "common": {
+    "save": "Save", "cancel": "Cancel", "edit": "Edit", "delete": "Delete",
+    "export": "Export", "search": "Search", "filter": "Filter", "loading": "Loading...",
+    "noData": "No data available", "confirm": "Confirm", "actions": "Actions",
+    "createdAt": "Created At", "updatedAt": "Updated At", "submit": "Submit"
+  }
+}

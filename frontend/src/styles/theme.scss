@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+
+// ── TMASI Custom Theme (Angular Material v17+ API) ──────────────────────────
+// Primary: Navy blue  #1e3870
+// Accent:  Gold       #c9a84c
+
+@include mat.core();
+
+$tmasi-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$orange-palette
+  ),
+  typography: (
+    brand-family: "'Inter', sans-serif",
+    plain-family: "'Inter', sans-serif"
+  ),
+  density: (scale: 0)
+));
+
+:root {
+  @include mat.all-component-themes($tmasi-theme);
+
+  // Override with TMASI brand colours
+  --mat-sys-primary: #1e3870;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-primary-container: #c5cade;
+  --mat-sys-secondary: #c9a84c;
+  --mat-sys-on-secondary: #ffffff;
+  --mat-sys-surface: #f8f9fc;
+  --mat-sys-background: #f0f2f7;
+}

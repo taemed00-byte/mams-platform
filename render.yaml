@@ -1,0 +1,64 @@
+# MAMS – Medical Assistance Management System
+# Render deployment configuration
+# Docs: https://render.com/docs/render-yaml-reference
+#
+# DATABASE: hosted on Neon (https://neon.tech)
+# Set DATABASE_URL manually in the Render dashboard after deploying.
+
+services:
+  # ── Backend API ──────────────────────────────────────────────────────────
+  - type: web
+    name: mams-api
+    runtime: python
+    region: frankfurt
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: '["https://mams-frontend-6soe.onrender.com","https://mams-api-g55c.onrender.com","http://localhost:4200"]'
+      - key: UPLOAD_DIR
+        value: /tmp/uploads
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: SMTP_HOST
+        value: ""
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        value: ""
+      - key: SMTP_PASSWORD
+        value: ""
+      - key: EMAIL_FROM
+        value: noreply@tmasi.net
+      - key: WHATSAPP_API_URL
+        value: ""
+      - key: WHATSAPP_TOKEN
+        value: ""
+      - key: WHATSAPP_PHONE_ID
+        value: ""
+      - key: CALL_CENTRE_API_URL
+        value: ""
+      - key: CALL_CENTRE_API_KEY
+        value: ""
+      - key: CALL_CENTRE_WEBHOOK_SECRET
+        value: ""
+
+  # ── Frontend ──────────────────────────────────────────────────────────────
+  - type: web
+    name: mams-frontend
+    runtime: node
+    region: frankfurt
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npx serve dist/mams-frontend/browser -l $PORT
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0

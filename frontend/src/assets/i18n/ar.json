@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم", "cases": "الحالات", "providers": "مزودو الخدمة",
+    "finance": "المالية", "clients": "العملاء", "reports": "التقارير",
+    "users": "المستخدمون", "settings": "الإعدادات", "audit": "سجل المراجعة", "logout": "تسجيل الخروج"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم", "openCases": "الحالات المفتوحة", "totalRevenue": "إجمالي الإيرادات",
+    "slaCompliance": "الامتثال للـ SLA", "overdueInvoices": "الفواتير المتأخرة",
+    "casesOverTime": "الحالات عبر الزمن", "statusBreakdown": "توزيع الحالات",
+    "costByType": "التكلفة حسب نوع الحالة", "topProviders": "أفضل مزودي الخدمة"
+  },
+  "cases": {
+    "title": "الحالات", "newCase": "حالة جديدة", "caseNumber": "رقم الحالة",
+    "patient": "المريض", "type": "النوع", "priority": "الأولوية",
+    "status": "الحالة", "country": "البلد", "cost": "التكلفة", "sla": "مستوى الخدمة"
+  },
+  "common": {
+    "save": "حفظ", "cancel": "إلغاء", "edit": "تعديل", "delete": "حذف",
+    "export": "تصدير", "search": "بحث", "filter": "تصفية", "loading": "جاري التحميل...",
+    "noData": "لا توجد بيانات", "confirm": "تأكيد", "actions": "الإجراءات",
+    "createdAt": "تاريخ الإنشاء", "updatedAt": "تاريخ التحديث", "submit": "إرسال"
+  }
+}
